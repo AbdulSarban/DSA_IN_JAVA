@@ -24,6 +24,24 @@ public class Inheritance_Type {
         b.fly();
 
         System.out.println("Hybrid Inheritance");
+        a a_1 = new a();
+        a_1.eat();
+        a_1.a1();
+
+        b b_1 = new b();
+        b_1.eat();
+        b_1.b1();
+
+        c c_1 = new c();
+        c_1.eat();
+        c_1.b1();
+        c_1.c1();
+
+        System.out.println("Multiple Inheritance");
+
+        d d1 = new d();
+        d1.eat();
+        d1.fun();
 
     }
 }
@@ -83,5 +101,25 @@ class b extends Animal {
 
     void b1() {
         System.out.println("Animal b");
+    }
+}
+
+class c extends b {
+
+    void c1() {
+        System.out.println("Animal c from b");
+    }
+}
+
+//multiple Inheritance
+interface new_interface {
+
+    public void fun();
+}
+
+class d extends Animal implements new_interface {
+
+    public void fun() {
+        System.out.println("Interface implemeted");
     }
 }
