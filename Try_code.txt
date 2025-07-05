@@ -1,0 +1,21 @@
+            //for(int k=n;k>=0;k--){
+              //  System.out.print(" ");
+            //}
+            //for(int l=n;l>=0;l--){
+              //  System.out.print(" ");
+            //}
+            //for(int m=1;m<=n-i+1;m++){
+              //  System.out.print("*");
+            //}
+
+            /*for(int r=n;r>=1;r--){
+                for(int s=n;s>r;s--){
+                    System.out.print(" ");
+                }
+                for(int t=1;t<=r;t++){
+                    System.out.print("*");
+                }
+                //System.out.println();
+            }
+            
+            */
