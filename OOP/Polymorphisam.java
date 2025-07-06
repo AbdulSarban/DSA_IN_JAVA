@@ -42,5 +42,8 @@ class Deer extends Animal {
     @Override
     void eat() {
         System.out.println("Eat Grass");
+        super.eat();// we can not access the parent class fun() dirctly
+        //we have to call it in child class function usin super keyward.
     }
+
 }
