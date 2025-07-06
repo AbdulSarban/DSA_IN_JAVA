@@ -11,6 +11,8 @@ public class Constructor_Chaining {
  /*In case of Parent - Child it is done by using super keyward*/
 
         temp_derived td = new temp_derived();
+
+        test ts = new test();
     }
 }
 
@@ -42,5 +44,16 @@ class temp_derived extends temp_base {
 
     temp_derived() {
         super();
+    }
+}
+
+class test {
+
+    {
+        System.out.println("1");
+    }
+
+    test() {
+        System.out.println("2");
     }
 }
