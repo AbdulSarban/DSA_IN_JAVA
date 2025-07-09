@@ -18,7 +18,7 @@ public class Fibnacci_Number {
 
     public static void main(String[] args) {
         System.out.println("Hello World");
-        int n = 10;
+        int n = 3;
         System.out.println(n + " th fibonacci number: " + fibo(n));
     }
 }
