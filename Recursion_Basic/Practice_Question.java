@@ -1,8 +1,65 @@
 
+import java.util.*;
+
 public class Practice_Question {
 
     public static int first = -1;
     public static int last = -1;
+
+    public static void printSubsequence_modify(String str, int ix, String newstr, HashSet<String> set) {
+
+        if (ix == str.length()) {
+            if (set.contains(newstr)) {
+                return;
+            } else {
+                System.out.println(newstr);
+                set.add(newstr);
+                return;
+            }
+        }
+
+        char current_char = str.charAt(ix);
+        //to be add
+        printSubsequence_modify(str, ix + 1, newstr + current_char, set);
+        //not to be add
+        printSubsequence_modify(str, ix + 1, newstr, set);
+
+    }
+
+    public static void printSubsequence(String str, int ix, String newstr) {
+
+        if (ix == str.length()) {
+            System.out.println(newstr);
+            return;
+        }
+
+        char current_char = str.charAt(ix);
+        //to be add
+        printSubsequence(str, ix + 1, newstr + current_char);
+        //not to be add
+        printSubsequence(str, ix + 1, newstr);
+
+    }
+
+    public static void movex(String str, int ix, int count, String newstr) {
+        if (ix == str.length()) {
+            for (int i = 0; i < count; i++) {
+                newstr += "x";
+            }
+            System.out.println(count);
+            System.out.println(newstr);
+            return;
+        }
+
+        char current_char = str.charAt(ix);
+        if (current_char == 'x') {
+            count++;
+            movex(str, ix + 1, count, newstr);
+        } else {
+            newstr += current_char;
+            movex(str, ix + 1, count, newstr);
+        }
+    }
 
     public static void occurence(String str, int ix, char key) {
 
@@ -123,5 +180,18 @@ public class Practice_Question {
         System.out.println("======== First and last Occurence in String ========");
         String s1 = "aabcdaahiah";
         occurence(s1, 0, 'a');
+        System.out.println("Move x at the end");
+        String s2 = "axbxcxd";
+        movex(s2, 0, 0, "");
+
+        System.out.println("======== Print Subsequence ========");
+        String s3 = "abc";
+        printSubsequence(s3, 0, "");
+        String s4 = "aaa";
+        printSubsequence(s4, 0, "");
+        System.out.println("======== Print Subsequence modified function ========");
+        HashSet<String> set = new HashSet();
+        printSubsequence_modify(s4, 0, "", set);
+
     }
 }
