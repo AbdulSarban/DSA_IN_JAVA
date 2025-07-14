@@ -5,6 +5,36 @@ public class Practice_Question {
 
     public static int first = -1;
     public static int last = -1;
+    public static String keypad[] = {".", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", "yz"};
+
+    public static String digits[] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+
+    public static void num_to_word(int number) {
+        if (number == 0) {
+            return;
+        }
+
+        int lastdigit = number % 10;
+        num_to_word(number / 10);
+        //int lastdigit = number % 10;
+        System.out.print(digits[lastdigit] + " ");
+
+    }
+
+    public static void keyboard_combination(String str, int ix, String combination) {
+
+        if (ix == str.length()) {
+            System.out.println(combination);
+            return;
+        }
+
+        char current_char = str.charAt(ix);
+        String mapping = keypad[current_char - '0'];
+
+        for (int i = 0; i < mapping.length(); i++) {
+            keyboard_combination(str, ix + 1, combination + mapping.charAt(i));
+        }
+    }
 
     public static void printSubsequence_modify(String str, int ix, String newstr, HashSet<String> set) {
 
@@ -192,6 +222,14 @@ public class Practice_Question {
         System.out.println("======== Print Subsequence modified function ========");
         HashSet<String> set = new HashSet();
         printSubsequence_modify(s4, 0, "", set);
+        System.out.println("======== keyboard_combination function ========");
+        String s5 = "23";
+        keyboard_combination(s5, 0, "");
+        System.out.println("2nd Combination");
+        keyboard_combination("45", 0, "");
+        System.out.println("======== num_to_word function ========");
+        num_to_word(1234);
+        System.out.println();
 
     }
 }
